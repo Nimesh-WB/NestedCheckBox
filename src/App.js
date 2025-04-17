@@ -44552,12 +44552,15 @@ const CheckBoxes = ({ data, checked, setChecked, opened, setOpened }) => {
       {data.map((node) => (
         <div key={node.Id} className="ml-4">
           <div className="flex gap-2 items-center">
-            <span
-              onClick={() => handleToggle(node)}
-              className="text-xs cursor-pointer"
-            >
-              {opened[node.Id] ? <BsDashSquare /> : <BsPlusSquare />}
-            </span>
+            {node.IsChildren && (
+              <span
+                onClick={() => handleToggle(node)}
+                className="text-xs cursor-pointer"
+              >
+                {opened[node.Id] ? <BsDashSquare /> : <BsPlusSquare />}
+              </span>
+            )}
+
             <input
               id={`checkbox-${node.Id}`}
               type="checkbox"
