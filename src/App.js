@@ -44496,8 +44496,9 @@ const treedata = [
 const CheckBoxes = ({ data, checked, setChecked, opened, setOpened }) => {
   const handleChange = (isChecked, node) => {
     setChecked((prev) => {
-      const newState = { ...prev, [node.Id]: isChecked }; // if parent checked then all child elements are checked
-
+      const newState = { ...prev, [node.Id]: isChecked };
+       
+      // if parent checked then all child elements are checked
       const updateChildren = (node) => {
         node.ChildData?.forEach((child) => {
           newState[child.Id] = isChecked;
